@@ -1,6 +1,7 @@
 {
     "name": "touchy",
     "version": "1.1.0",
+    "main" : "jquery.touchy.js",
     "author": {
         "name": "Bill Fisher",
         "email": "fisherwebdev@gmail.com",

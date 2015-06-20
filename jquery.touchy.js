@@ -163,6 +163,7 @@
                     "x": points.centerX,
                     "y": points.centerY
                   }
+                  data.points=points;
                   data.startDistance = Math.sqrt( Math.pow( (points.x2 - points.x1), 2 ) + Math.pow( (points.y2 - points.y1), 2 ) );
                 }
                 break;
@@ -175,10 +176,10 @@
                 };
                 data.startDate = e.timeStamp;
                 if (settings.triggerStartPhase) {
-                  $target.trigger('touchy-longpress', ['start', $target]);
+                  $target.trigger('touchy-longpress', ['start', $target, data]);
                 }
                 data.timer = setTimeout($.proxy(function(){
-                  $target.trigger('touchy-longpress', ['end', $target]);
+                  $target.trigger('touchy-longpress', ['end', $target, data]);
                 }, this), settings.msThresh);
                 break;
 
@@ -286,7 +287,8 @@
                         "previousScale": previousScale,
                         "currentPoint":  data.currentPoint,
                         "startPoint":    data.startPoint,
-                        "startDistance": startDistance
+                        "startDistance": startDistance,
+                        "points" : data.points
                       }]);
                     }
                   }
